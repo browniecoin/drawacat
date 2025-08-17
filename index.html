@@ -350,6 +350,16 @@
         </p>
     </div>
 
+    <div class="donation-section">
+        <h3>🪙 Official Token</h3>
+        <p>Get the official Draw a Cat token on Solana!</p>
+        <div class="wallet-address" id="tokenAddress">GidgZEcJREaXZKDamP2B2nLHEGva69kskHz6WqnLpump</div>
+        <button class="copy-btn" onclick="copyTokenAddress()">Copy Contract Address</button>
+        <p style="font-size: 0.9em; opacity: 0.8; margin-top: 10px;">
+            Trade the official Draw a Cat token and join the feline revolution!
+        </p>
+    </div>
+
     <script>
         const canvas = document.getElementById('drawingCanvas');
         const ctx = canvas.getContext('2d');
@@ -469,6 +479,20 @@
         function copyWalletAddress() {
             const walletAddress = document.getElementById('walletAddress').textContent;
             navigator.clipboard.writeText(walletAddress).then(() => {
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = 'Copied!';
+                btn.style.background = 'linear-gradient(45deg, #4CAF50, #45a049)';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = 'linear-gradient(45deg, #9C27B0, #7B1FA2)';
+                }, 2000);
+            });
+        }
+
+        function copyTokenAddress() {
+            const tokenAddress = document.getElementById('tokenAddress').textContent;
+            navigator.clipboard.writeText(tokenAddress).then(() => {
                 const btn = event.target;
                 const originalText = btn.textContent;
                 btn.textContent = 'Copied!';
